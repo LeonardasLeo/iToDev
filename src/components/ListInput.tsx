@@ -13,9 +13,7 @@ const ListInput: React.FC<ListInputProps> = ({
       name="search"
       placeholder={searchPlaceholder}
       value={query}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(e);
-      }}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
     />
   );
 };
