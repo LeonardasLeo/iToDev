@@ -1,0 +1,40 @@
+.card {
+  flex: 0 0 auto;
+  transition: 0.3s ease;
+  margin-bottom: 10px;
+
+  img {
+    height: 200px;
+    width: 200px;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  &:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+}
+
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .listSearchInput {
+    height: 40px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 0 2px;
+  }
+}
