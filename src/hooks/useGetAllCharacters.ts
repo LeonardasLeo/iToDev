@@ -3,7 +3,7 @@ import { api } from "../api/api";
 import { useCharacterStore } from "../store/useCharacterStore";
 import { useMovieStore } from "../store/useMoviesStore";
 import type { ApiResponse, Character } from "../types";
-import { getSwapiUrlId } from "../utilities/swapiIdParse";
+import { getSwapiUrlId } from "../utilities/swapi";
 
 export const useGetAllCharacters = (id?: string) => {
   const [charLoading, setCharLoading] = useState<boolean>(false);
@@ -31,7 +31,13 @@ export const useGetAllCharacters = (id?: string) => {
 
     const result: ApiResponse<Character>[] = await Promise.all(characterPromises);
     const successfulChars: Character[] = result
-      .filter((res) => !res.error && res.data)
+      .filter((res) => {
+        if (res.error) {
+          setCharError(res.error);
+          return false;
+        }
+        return res.data;
+      })
       .map((res) => res.data!);
 
     setCharacters(successfulChars);

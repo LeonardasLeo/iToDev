@@ -1,0 +1,47 @@
+.sidebar {
+  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.4));
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .logo {
+    flex: 1;
+    h1 {
+      font-size: 2.5em;
+
+      cursor: pointer;
+    }
+  }
+
+  .menu,
+  .profile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    a {
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        color: #c61b08;
+        font-size: 17px;
+      }
+    }
+  }
+
+  .menu {
+    flex: 3;
+  }
+
+  .profile {
+    flex: 1;
+  }
+}

@@ -16,11 +16,16 @@
   }
 }
 
-.listWrapper {
+.list-wrapper {
   display: flex;
   flex-direction: column;
 
-  .listSearchInput {
+  .list-title {
+    margin: 0.82em 0;
+    font-size: 1.5em;
+  }
+
+  .list-search-input {
     height: 40px;
     border: none;
     padding: 10px;

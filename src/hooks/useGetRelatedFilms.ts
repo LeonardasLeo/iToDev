@@ -2,7 +2,7 @@ import { useState } from "react";
 import { api } from "../api/api";
 import { useCharacterStore } from "../store/useCharacterStore";
 import type { ApiResponse, Film } from "../types";
-import { getSwapiUrlId } from "../utilities/swapiIdParse";
+import { getSwapiUrlId } from "../utilities/swapi";
 
 export const useGetRelatedFilms = () => {
   const { currentCharacter, setRelatedFilms, relatedFilms } = useCharacterStore();
@@ -24,7 +24,6 @@ export const useGetRelatedFilms = () => {
       .filter((res) => {
         if (res.error) {
           setMovieError(res.error);
-          console.error(res.error);
           return false;
         }
         return res.data;

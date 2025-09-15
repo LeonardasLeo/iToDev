@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import "../styles/scss/CharacterDetails.scss";
+import "../styles/pages/CharacterDetails.scss";
 import { useGetRelatedFilms } from "../hooks/useGetRelatedFilms";
 import { useGetCurrentCharacter } from "../hooks/useGetCurrentCharacter";
 import { useEffect } from "react";
@@ -35,10 +35,10 @@ const CharacterDetails: React.FC = () => {
   return (
     <div className="character-details-wrapper">
       <div className="character-container">
-        <div className="character-image">
-          <img src="/character.jpg" alt="" />
-        </div>
-        <div className="character-info">
+        <section className="character-image">
+          <img src="/character.jpg" alt="character image" />
+        </section>
+        <section className="character-info">
           <h1>{currentCharacter.name}</h1>
           <p>
             <strong>Height:</strong> {currentCharacter.height}
@@ -61,7 +61,7 @@ const CharacterDetails: React.FC = () => {
           <p>
             <strong>Birth year</strong> {currentCharacter.birth_year}
           </p>
-        </div>
+        </section>
       </div>
       
       <MovieList />

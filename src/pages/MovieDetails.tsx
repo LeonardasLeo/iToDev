@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import "react-loading-skeleton/dist/skeleton.css";
-import "../styles/scss/MovieDetails.scss";
+import "../styles/pages/MovieDetails.scss";
 import CharacterList from "../components/CharacterList";
 import { useGetAllCharacters } from "../hooks/useGetAllCharacters";
 import { useGetCurrentMovie } from "../hooks/useGetCurrentMovie";
@@ -36,7 +36,7 @@ const MovieDetails: React.FC = () => {
     <div className="movie-details-wrapper">
       <div className="movie-container">
         <div className="movie-image">
-          <img src="/starwars.jpg" alt="" />
+          <img src="/starwars.jpg" alt="film poster" />
         </div>
         <div className="movie-info">
           <h1>{currentMovie.title}</h1>

@@ -1,4 +1,5 @@
 import type { ListInputProps } from "../types/propTypes";
+import '../styles/components/listInput.scss'
 
 const ListInput: React.FC<ListInputProps> = ({
   searchPlaceholder,
@@ -7,8 +8,9 @@ const ListInput: React.FC<ListInputProps> = ({
 }) => {
   return (
     <input
-      className="listSearchInput"
+      className="list-search-input"
       type="text"
+      name="search"
       placeholder={searchPlaceholder}
       value={query}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

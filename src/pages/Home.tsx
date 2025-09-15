@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import "../styles/scss/Home.scss";
+import "../styles/pages/Home.scss";
 import type { Film } from "../types";
-import { getSwapiUrlId } from "../utilities/swapiIdParse";
+import { getSwapiUrlId } from "../utilities/swapi";
 import { useGetAllMovies } from "../hooks/useGetAllMovies";
 import { useGetCurrentMovie } from "../hooks/useGetCurrentMovie";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/HomeMovieCard";
 
 const MoviesList: React.FC = () => {
   const { movies, error, fetchMovies } = useGetAllMovies();
@@ -27,17 +27,15 @@ const MoviesList: React.FC = () => {
 
   return (
     <div className="wrapper">
-      
       <div className="content">
-        <div className="header">
+        <header className="header">
           <h1 className="main-title">
             MAY THE FORCE <br /> BE WITH YOU
           </h1>
           <p>No, I am your father.</p>
           <p>I find your lack of faith disturbing.</p>
-        </div>
-        <div className="movie-list">
-          
+        </header>
+        <div className="home-movies-list">
           {movies.map((movie: Film, index: number) => (
             <MovieCard
               movie={movie}

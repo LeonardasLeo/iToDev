@@ -1,12 +1,12 @@
 import type { Film } from "../types";
 import { useMovieStore } from "../store/useMoviesStore";
-import "../styles/scss/List.scss";
+import "../styles/components/list.scss"
 import ListInput from "./ListInput";
 import ListCard from "./ListCard";
 import type { MovieListProps } from "../types/propTypes";
 import { useGetList } from "../hooks/useGetList";
-import { getSwapiUrlId } from "../utilities/swapiIdParse";
 import { useCharacterStore } from "../store/useCharacterStore";
+import { getUrl } from "../utilities/navigation";
 
 const MovieList: React.FC<MovieListProps> = ({ showSearchBar, searchPlaceholder }) => {
   const VITE_ROUTES_MOVIE = import.meta.env.VITE_ROUTES_MOVIE;
@@ -14,17 +14,13 @@ const MovieList: React.FC<MovieListProps> = ({ showSearchBar, searchPlaceholder 
   const { relatedFilms } = useCharacterStore();
   const { query, onChange, filteredData } = useGetList(relatedFilms);
 
-  const getUrl = (url: string) => {
-    return `/${VITE_ROUTES_MOVIE}/${getSwapiUrlId(url)}`;
-  };
-
   console.log(filteredData);
 
   return (
-    <div className="listWrapper">
-      <h3>
+    <div className="list-wrapper">
+      <p className="list-title">
         <strong>Related Films:</strong>
-      </h3>
+      </p>
       {showSearchBar && (
         <ListInput query={query} onChange={onChange} searchPlaceholder={searchPlaceholder} />
       )}
@@ -32,7 +28,7 @@ const MovieList: React.FC<MovieListProps> = ({ showSearchBar, searchPlaceholder 
         {filteredData.map((data: Film, index: number) => (
           <ListCard
             key={index}
-            url={getUrl(data.url)}
+            url={getUrl(VITE_ROUTES_MOVIE, data.url)}
             data={data}
             displayName={data.title}
             selectItem={() => setCurrentMovie(data)}
