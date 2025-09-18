@@ -5,7 +5,7 @@ import CharacterList from "../../components/CharacterList";
 import { useGetAllCharacters } from "../../hooks/useGetAllCharacters";
 import { useGetCurrentMovie } from "../../hooks/useGetCurrentMovie";
 import { useEffect } from "react";
-import LoadingSkeleton from "../../components/LoadingSkeleton";
+import DetailPageLoadingSkeleton from "../../components/DetailPageLoadingSkeleton";
 
 const MovieDetails: React.FC = () => {
   const { id } = useParams();
@@ -25,7 +25,7 @@ const MovieDetails: React.FC = () => {
     }
   }, [characters.length, currentMovie, getCharacters]);
 
-  if (charLoading || movieLoading) return <LoadingSkeleton itemType="movie" />;
+  if (charLoading || movieLoading) return <DetailPageLoadingSkeleton itemType="movie" />;
 
   if (charError) return <div>{charError}</div>;
   if (movieError || !currentMovie) return <div>{movieError}</div>;

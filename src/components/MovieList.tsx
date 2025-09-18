@@ -7,9 +7,9 @@ import type { MovieListProps } from "../types/propTypes";
 import { useGetList } from "../hooks/useGetList";
 import { useCharacterStore } from "../store/useCharacterStore";
 import { getUrl } from "../utilities/routing";
+import { routes } from "../routes";
 
 const MovieList: React.FC<MovieListProps> = ({ showSearchBar, searchPlaceholder }) => {
-  const VITE_ROUTES_MOVIE = import.meta.env.VITE_ROUTES_MOVIE;
   const { setCurrentMovie } = useMovieStore();
   const { relatedFilms } = useCharacterStore();
   const { query, onChange, filteredData } = useGetList(relatedFilms);
@@ -26,7 +26,7 @@ const MovieList: React.FC<MovieListProps> = ({ showSearchBar, searchPlaceholder 
         {filteredData.map((data: Film, index: number) => (
           <ListCard
             key={index}
-            url={getUrl(VITE_ROUTES_MOVIE, data.url)}
+            url={getUrl(routes.movie, data.url)}
             data={data}
             displayName={data.title}
             selectItem={() => setCurrentMovie(data)}

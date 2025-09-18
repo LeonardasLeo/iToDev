@@ -7,8 +7,11 @@ import { useMovieStore } from "../store/useMoviesStore";
 export const useGetAllMovies = () => {
   const { movies, setMovies } = useMovieStore();
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchMovies = async () => {
+    setLoading(true);
+
     const { data, error } = await api.getAllMovie();
 
     if (error) {
@@ -19,7 +22,9 @@ export const useGetAllMovies = () => {
     if (data) {
       setMovies(data);
     }
+
+    setLoading(false);
   };
 
-  return { movies, error, fetchMovies };
+  return { movies, error, fetchMovies, loading };
 };

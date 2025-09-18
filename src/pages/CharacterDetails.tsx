@@ -4,14 +4,13 @@ import { useGetRelatedFilms } from "../hooks/useGetRelatedFilms";
 import { useGetCurrentCharacter } from "../hooks/useGetCurrentCharacter";
 import { useEffect } from "react";
 import MovieList from "../components/MovieList";
-import LoadingSkeleton from "../components/LoadingSkeleton";
+import DetailPageLoadingSkeleton from "../components/DetailPageLoadingSkeleton";
 
 const CharacterDetails: React.FC = () => {
   const { id } = useParams();
   const { getRelatedFilms, relatedFilms, moviesLoading, movieError } = useGetRelatedFilms();
   const { currentCharacter, charLoading, charError, getCurrentCharacter } =
     useGetCurrentCharacter();
-  console.log(relatedFilms.length);
 
   useEffect(() => {
     if (!currentCharacter) {
@@ -25,7 +24,7 @@ const CharacterDetails: React.FC = () => {
     }
   }, [getRelatedFilms, relatedFilms.length]);
 
-  if (charLoading || moviesLoading) return <LoadingSkeleton itemType="character" />;
+  if (charLoading || moviesLoading) return <DetailPageLoadingSkeleton itemType="character" />;
 
   if (charError || !currentCharacter) return <div>{charError}</div>;
   if (movieError) return <div>{movieError}</div>;

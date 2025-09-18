@@ -5,9 +5,11 @@ import { getSwapiUrlId } from "../utilities/swapi";
 import { useGetAllMovies } from "../hooks/useGetAllMovies";
 import { useGetCurrentMovie } from "../hooks/useGetCurrentMovie";
 import MovieCard from "../components/HomeMovieCard";
+import Header from "../components/Header";
+import HomeLoadingSkeleton from "../components/HomeLoadingSkeleton";
 
 const MoviesList: React.FC = () => {
-  const { movies, error, fetchMovies } = useGetAllMovies();
+  const { movies, error, loading, fetchMovies } = useGetAllMovies();
   const { getCurrentMovie } = useGetCurrentMovie();
 
   useEffect(() => {
@@ -21,20 +23,18 @@ const MoviesList: React.FC = () => {
     getCurrentMovie(movieId);
   };
 
+  if (loading) {
+    return <HomeLoadingSkeleton />;
+  }
+
   if (error) {
     return <div>{error}</div>;
   }
 
   return (
-    <div className="wrapper">
+    <div className="home-wrapper">
       <div className="content">
-        <header className="header">
-          <h1 className="main-title">
-            MAY THE FORCE <br /> BE WITH YOU
-          </h1>
-          <p>No, I am your father.</p>
-          <p>I find your lack of faith disturbing.</p>
-        </header>
+        <Header />
         <div className="home-movies-list">
           {movies.map((movie: Film, index: number) => (
             <MovieCard

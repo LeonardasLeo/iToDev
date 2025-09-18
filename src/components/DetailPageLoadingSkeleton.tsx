@@ -2,7 +2,7 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 import type { LoadingSkeletonProps } from "../types/propTypes";
 
-const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({ itemType }) => {
+const DetailPageLoadingSkeleton: React.FC<LoadingSkeletonProps> = ({ itemType }) => {
   return (
     <div className={`${itemType}-details-wrapper`}>
       <div className={`${itemType}-container`}>
@@ -20,4 +20,4 @@ const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({ itemType }) => {
   );
 };
 
-export default LoadingSkeleton;
+export default DetailPageLoadingSkeleton;

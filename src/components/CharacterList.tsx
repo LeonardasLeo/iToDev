@@ -7,9 +7,9 @@ import "../styles/components/list.scss";
 import type { CharacterListProps } from "../types/propTypes";
 import { useGetList } from "../hooks/useGetList";
 import { getUrl } from "../utilities/routing";
+import { routes } from "../routes";
 
 const CharacterList: React.FC<CharacterListProps> = ({ showSearchBar, searchPlaceholder }) => {
-  const VITE_ROUTES_CHARACTER = import.meta.env.VITE_ROUTES_CHARACTER;
   const { setCurrentCharacter, characters } = useCharacterStore();
   const { filteredData, query, onChange } = useGetList(characters);
 
@@ -25,7 +25,7 @@ const CharacterList: React.FC<CharacterListProps> = ({ showSearchBar, searchPlac
         {filteredData.map((data: Character, index: number) => (
           <ListCard
             key={index}
-            url={getUrl(VITE_ROUTES_CHARACTER, data.url)}
+            url={getUrl(routes.character, data.url)}
             data={data}
             displayName={data.name}
             selectItem={() => setCurrentCharacter(data)}

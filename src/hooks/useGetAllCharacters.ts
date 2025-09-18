@@ -12,7 +12,6 @@ export const useGetAllCharacters = (id?: string) => {
   const { currentMovie } = useMovieStore();
 
   const getCharacters = async (): Promise<void> => {
-    // fetch and set characters based on current movie
     if (!id) {
       setCharError("No ID provided");
       setCharLoading(false);
