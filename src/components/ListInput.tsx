@@ -10,7 +10,7 @@ const ListInput: React.FC<ListInputProps> = ({
     <input
       className="list-search-input"
       type="text"
-      name="search"
+      aria-label="search"
       placeholder={searchPlaceholder}
       value={query}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}

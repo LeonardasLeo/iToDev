@@ -3,10 +3,10 @@ import type { Character } from "../types";
 import { useCharacterStore } from "../store/useCharacterStore";
 import ListInput from "./ListInput";
 import ListCard from "./ListCard";
-import "../styles/components/list.scss"
+import "../styles/components/list.scss";
 import type { CharacterListProps } from "../types/propTypes";
 import { useGetList } from "../hooks/useGetList";
-import { getUrl } from "../utilities/navigation";
+import { getUrl } from "../utilities/routing";
 
 const CharacterList: React.FC<CharacterListProps> = ({ showSearchBar, searchPlaceholder }) => {
   const VITE_ROUTES_CHARACTER = import.meta.env.VITE_ROUTES_CHARACTER;

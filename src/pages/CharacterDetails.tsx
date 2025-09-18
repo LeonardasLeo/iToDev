@@ -9,8 +9,9 @@ import LoadingSkeleton from "../components/LoadingSkeleton";
 const CharacterDetails: React.FC = () => {
   const { id } = useParams();
   const { getRelatedFilms, relatedFilms, moviesLoading, movieError } = useGetRelatedFilms();
-  const { currentCharacter, charLoading, charError, getCurrentCharacter } = useGetCurrentCharacter();
-  console.log(relatedFilms.length)
+  const { currentCharacter, charLoading, charError, getCurrentCharacter } =
+    useGetCurrentCharacter();
+  console.log(relatedFilms.length);
 
   useEffect(() => {
     if (!currentCharacter) {
@@ -24,10 +25,7 @@ const CharacterDetails: React.FC = () => {
     }
   }, [getRelatedFilms, relatedFilms.length]);
 
-  if (charLoading || moviesLoading)
-    return (
-      <LoadingSkeleton itemType="character" />
-    );
+  if (charLoading || moviesLoading) return <LoadingSkeleton itemType="character" />;
 
   if (charError || !currentCharacter) return <div>{charError}</div>;
   if (movieError) return <div>{movieError}</div>;
@@ -63,7 +61,7 @@ const CharacterDetails: React.FC = () => {
           </p>
         </section>
       </div>
-      
+
       <MovieList />
     </div>
   );

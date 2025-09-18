@@ -6,7 +6,7 @@ import "./index.scss";
 import { SkeletonTheme } from "react-loading-skeleton";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <SkeletonTheme baseColor="#3c3c3c" highlightColor="#4b4b4b">
+  <SkeletonTheme baseColor="var(--skeleton-base-color)" highlightColor="var(--skeleton-highlight-color)">
     <StrictMode>
       <BrowserRouter>
         <App />

@@ -7,13 +7,12 @@ export const useMovieStore = create<MovieStore>()(
     (set) => ({
       movies: [],
       currentMovie: undefined,
-      loading: false,
       error: null,
       setMovies: (data: Film[]) => {
-        set({ movies: data, loading: false });
+        set({ movies: data });
       },
       setCurrentMovie: (data: Film) => {
-        set({ currentMovie: data, loading: false });
+        set({ currentMovie: data });
       },
     }),
     {

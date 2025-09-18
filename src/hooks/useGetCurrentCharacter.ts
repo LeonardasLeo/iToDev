@@ -20,14 +20,13 @@ export const useGetCurrentCharacter = () => {
 
       if (error) {
         setCharError(error);
-        setCharLoading(false);
       }
 
       if (data) {
-        console.log(data);
         setCurrentCharacter(data);
-        setCharLoading(false);
       }
+
+      setCharLoading(false);
     };
     fetchCharacter();
   };

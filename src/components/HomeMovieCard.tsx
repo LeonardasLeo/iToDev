@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { getShortenedCrawl } from "../utilities/movie";
 import type { MovieCardProps } from "../types/propTypes";
-import { getUrl } from "../utilities/navigation";
-import '../styles/components/homeMovieCard.scss'
+import { getUrl } from "../utilities/routing";
+import "../styles/components/homeMovieCard.scss";
 
 const MovieCard: React.FC<MovieCardProps> = ({ index, movie, onSelect }) => {
   const VITE_ROUTES_MOVIE = import.meta.env.VITE_ROUTES_MOVIE;

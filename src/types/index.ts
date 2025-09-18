@@ -33,7 +33,6 @@ export type CharacterStore = {
   characters: Character[] | [];
   currentCharacter: Character | undefined;
   relatedFilms: Film[] | [];
-  loading: boolean;
   error: string | null;
   setCharacters: (data: Character[]) => void;
   setCurrentCharacter: (data: Character) => void;
@@ -43,7 +42,6 @@ export type CharacterStore = {
 export type MovieStore = {
   movies: Film[] | [];
   currentMovie: Film | undefined;
-  loading: boolean;
   error: string | null;
   setMovies: (data: Film[]) => void;
   setCurrentMovie: (data: Film) => void;

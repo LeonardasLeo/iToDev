@@ -24,11 +24,12 @@
 }
 
 .header {
-  flex: 2;
+  flex: 1;
   max-width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 5px;
 
   .main-title {
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;

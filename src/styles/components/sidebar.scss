@@ -1,5 +1,7 @@
+@use '../variables' as *;
+
 .sidebar {
-  background: linear-gradient(to right, black, rgba(0, 0, 0, 0.4));
+  background: $sidebar-gradient;
   position: absolute;
   left: 0;
   top: 0;
@@ -31,7 +33,7 @@
       transition: 0.3s ease;
 
       &:hover {
-        color: #c61b08;
+        color: $sidebar-menu-hover-color;
         font-size: 17px;
       }
     }

@@ -28,13 +28,11 @@ export const useGetList = <T extends Film | Character>(data: T[]) => {
       if ("name" in obj) {
         const objNameLower = obj.name.toLowerCase();
         const queryLower = debouncedQuery.toLowerCase();
-        const isMatch = objNameLower.includes(queryLower);
-        return isMatch;
+        return objNameLower.includes(queryLower);
       } else {
         const objNameLower = obj.title.toLowerCase();
         const queryLower = debouncedQuery.toLowerCase();
-        const isMatch = objNameLower.includes(queryLower);
-        return isMatch;
+        return objNameLower.includes(queryLower);
       }
     });
   }, [data, debouncedQuery]);

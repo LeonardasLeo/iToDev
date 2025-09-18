@@ -8,16 +8,15 @@ export const useCharacterStore = create<CharacterStore>()(
       characters: [],
       currentCharacter: undefined,
       relatedFilms: [],
-      loading: false,
       error: null,
       setCharacters: (data: Character[]) => {
-        set({ characters: data, loading: false });
+        set({ characters: data });
       },
       setCurrentCharacter: (data: Character) => {
-        set({ currentCharacter: data, loading: false });
+        set({ currentCharacter: data });
       },
       setRelatedFilms: (data: Film[]) => {
-        set({ relatedFilms: data, loading: false });
+        set({ relatedFilms: data });
       },
     }),
     {
