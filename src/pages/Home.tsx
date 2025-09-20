@@ -1,27 +1,21 @@
 import React, { useEffect } from "react";
 import "../styles/pages/Home.scss";
 import type { Film } from "../types";
-import { getSwapiUrlId } from "../utilities/swapi";
 import { useGetAllMovies } from "../hooks/useGetAllMovies";
-import { useGetCurrentMovie } from "../hooks/useGetCurrentMovie";
 import MovieCard from "../components/HomeMovieCard";
 import Header from "../components/Header";
 import HomeLoadingSkeleton from "../components/HomeLoadingSkeleton";
+import { useMovieStore } from "../store/useMoviesStore";
 
 const MoviesList: React.FC = () => {
   const { movies, error, loading, fetchMovies } = useGetAllMovies();
-  const { getCurrentMovie } = useGetCurrentMovie();
+  const { setCurrentMovie } = useMovieStore();
 
   useEffect(() => {
     if (movies.length === 0) {
       fetchMovies();
     }
   }, [movies.length, fetchMovies]);
-
-  const movieSelected = (movie: Film) => {
-    const movieId = getSwapiUrlId(movie.url);
-    getCurrentMovie(movieId);
-  };
 
   if (loading) {
     return <HomeLoadingSkeleton />;
@@ -37,13 +31,7 @@ const MoviesList: React.FC = () => {
         <Header />
         <div className="home-movies-list">
           {movies.map((movie: Film, index: number) => (
-            <MovieCard
-              movie={movie}
-              index={index}
-              onSelect={() => {
-                movieSelected(movie);
-              }}
-            />
+            <MovieCard movie={movie} index={index} onSelect={() => setCurrentMovie(movie)} />
           ))}
         </div>
       </div>
